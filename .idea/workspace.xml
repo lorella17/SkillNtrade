@@ -51,6 +51,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
@@ -80,12 +81,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527212701662</updated>
-      <workItem from="1527212703916" duration="115000" />
+      <workItem from="1527212703916" duration="183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115000" />
+    <option name="totallyTimeSpent" value="183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="414" y="58" width="1026" height="757" extended-state="0" />
