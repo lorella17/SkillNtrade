@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
 router.get('/api/wants', (req, res) => {
     db.Wants.findAll({})
         .then(dbWant => {
+
             res.json(dbWant);
         }).catch( err => {
             if(err) {
@@ -42,7 +43,7 @@ router.get('/needs', (req, res) => {
         const hdbsObject = {
             needs: dbNeed
         };
-        console.log(dbNeed);
+        // console.log(dbNeed);
         res.render('needs', hdbsObject);
     }).catch(err => {
         if(err){

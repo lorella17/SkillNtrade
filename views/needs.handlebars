@@ -1,6 +1,9 @@
 <div>
-    <h2>Wants</h2>
-    {{#each dbNeed}}
-        {{needs/need-block}}
-    {{/each}}
+    <h2>Needs</h2>
+    <ul>
+        {{#each needs}}
+            {{>needs/need-block}}
+        {{/each}}
+    </ul>
+
 </div>
