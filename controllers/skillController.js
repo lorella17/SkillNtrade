@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/needs', (req, res) => {
-    db.need.findAll({}).then(dbNeed => {
+    db.Needs.findAll({}).then(dbNeed => {
         const hdbsObject = {
             needs: dbNeed
         };

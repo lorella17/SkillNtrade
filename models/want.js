@@ -5,8 +5,11 @@ module.exports = function(sequelize, DataTypes) {
         skills: DataTypes.TEXT,
         location: DataTypes.STRING,
         category: DataTypes.STRING,
-        // timestamps: false,
-        tableName: 'wants'
+
+        // tableName: 'wants'
+
+    }, {
+        timestamps: false
     });
     return Wants;
 };
