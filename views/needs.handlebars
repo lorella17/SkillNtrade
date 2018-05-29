@@ -1,10 +1,17 @@
 <div>
     <h2>Wants</h2>
     {{#each dbNeed}}
-<!--<<<<<<< HEAD-->
         {{>wants/want-block}}
-<!--=======-->
+
         {{needs/need-block}}
-<!-->>>>>>> 8470b5231313c8ff71257057c1a5527433c8fd89-->
+
     {{/each}}
+
+    <h2>Needs</h2>
+    <ul>
+        {{#each needs}}
+            {{>needs/need-block}}
+        {{/each}}
+    </ul>
+
 </div>

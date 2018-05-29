@@ -19,7 +19,7 @@ const routes = require('./controllers/skillController');
 
 app.use(routes);
 
-db.sequelize.sync({force: false}).then( () => {
+db.sequelize.sync({}).then( () => {
     app.listen(PORT, () => {
         console.log(`App listening on PORT ${PORT}`);
     });
