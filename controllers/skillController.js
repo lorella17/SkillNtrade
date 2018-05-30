@@ -6,15 +6,12 @@ const router = express.Router();
 
 //get route for main page
 router.get('/', (req, res) => {
-    res.send(`This shit's working`)
+    res.render(`index`)
 });
-//     .then().catch( err => {
-//     console.error(err);
-// })
 
-//get route for wants api
-router.get('/api/wants', (req, res) => {
-    db.Wants.findAll({})
+//get route for skills api
+router.get('/api/skills', (req, res) => {
+    db.Skills.findAll({})
         .then(dbWant => {
 
             res.json(dbWant);
@@ -25,8 +22,8 @@ router.get('/api/wants', (req, res) => {
     })
 });
 
-router.get('/api/needs', (req, res) => {
-    db.Needs.findAll({})
+router.get('/api/tasks', (req, res) => {
+    db.Tasks.findAll({})
         .then(dbNeed => {
             res.json(dbNeed);
         }).catch( err => {
@@ -37,27 +34,27 @@ router.get('/api/needs', (req, res) => {
 });
 
 
-//get route for needs page
-router.get('/needs', (req, res) => {
-    db.Needs.findAll({}).then(dbNeed => {
+//get route for tasks page
+router.get('/skills', (req, res) => {
+    db.Skills.findAll({}).then(dbSkill => {
         const hdbsObject = {
-            needs: dbNeed
+            skills: dbSkill
         };
         // console.log(dbNeed);
-        res.render('needs', hdbsObject);
+        res.render('skills', hdbsObject);
     }).catch(err => {
         if(err){
             console.error(err);
         }
     })
 });
-//get route for wants page
-router.get('/wants', (req, res) => {
-    db.Wants.findAll({}).then(dbWant => {
+//get route for skills page
+router.get('/tasks', (req, res) => {
+    db.Tasks.findAll({}).then(dbTasks => {
         const hdbsObject = {
-            wants: dbWant
+            tasks: dbTasks
         };
-        res.render('wants', hdbsObject);
+        res.render('tasks', hdbsObject);
     }).catch(err => {
         if(err){
             console.error(err);
@@ -66,7 +63,7 @@ router.get('/wants', (req, res) => {
 });
 
 //post route for want api
-router.post('/api/wants', (req, res) => {
+router.post('/api/skills', (req, res) => {
     console.log(req.body);
     db.Wants.create({
         name: req.body.name,
@@ -81,8 +78,8 @@ router.post('/api/wants', (req, res) => {
     });
 });
 
-//post route for needs api
-router.post('/api/needs', (req, res) => {
+//post route for tasks api
+router.post('/api/tasks', (req, res) => {
     console.log(req.body);
     db.Needs.create({
         name: req.body.name,

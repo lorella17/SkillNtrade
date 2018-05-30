@@ -3,12 +3,11 @@ module.exports = function(sequelize, DataTypes) {
 
         name: DataTypes.STRING,
         email: DataTypes.STRING,
-        task: DataTypes.TEXT,
+        tasks: DataTypes.TEXT,
+        compensation: DataTypes.TEXT,
         location: DataTypes.STRING,
-        category: DataTypes.STRING,
+        category: DataTypes.STRING
 
-    }, {
-        timestamps: false
     });
     return Tasks;
 };
