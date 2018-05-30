@@ -4,13 +4,8 @@ const express = require('express');
 
 const router = express.Router();
 
-//get route for main page
-router.get('/', (req, res) => {
-    res.send(`This shit's working`)
-});
-//     .then().catch( err => {
-//     console.error(err);
-// })
+//================================================
+//API get routes
 
 //get route for wants api
 router.get('/api/wants', (req, res) => {
@@ -34,6 +29,16 @@ router.get('/api/needs', (req, res) => {
             console.error(err);
         }
     })
+});
+
+//===============================================
+//Handlebars Page rendering
+
+//get route for main page
+router.get('/', (req, res) => {
+    res.render(`index`);
+}).then().catch( err => {
+    console.error(err);
 });
 
 
@@ -64,6 +69,9 @@ router.get('/wants', (req, res) => {
         }
     });
 });
+
+//==============================================
+//POST ROUTES
 
 //post route for want api
 router.post('/api/wants', (req, res) => {

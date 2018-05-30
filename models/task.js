@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-    const Needs = sequelize.define("Needs", {
+    const Tasks = sequelize.define("Tasks", {
         name: DataTypes.STRING,
         email: DataTypes.STRING,
-        need: DataTypes.TEXT,
+        task: DataTypes.TEXT,
         location: DataTypes.STRING,
         category: DataTypes.STRING,
     }, {
         timestamps: false
     });
-    return Needs;
+    return Tasks;
 };

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const Wants = sequelize.define("Wants", {
+    const Skills = sequelize.define("Skills", {
         name: DataTypes.STRING,
         email: DataTypes.STRING,
         skills: DataTypes.TEXT,
@@ -9,5 +9,5 @@ module.exports = function(sequelize, DataTypes) {
     },{
         timestamps: false
     });
-    return Wants;
+    return Skills;
 };
