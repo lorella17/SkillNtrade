@@ -1,17 +1,37 @@
 <div class="container col-sm-10">
 
+    <div class="container col-sm-10">
+        <div class="row">
+            <header>
+                <a href="/">
+                    <button>Main Page</button>
+                </a>
+                <a href="/tasks">
+                    <button>Skills</button>
+                </a>
+            </header>
+        </div>
 
-    <div class ="container text-center" >
+        <br>
 
-        <h1>Tasks</h1>
-        <ul>
-            {{#each tasks}}
-                {{>tasks/task-block}}
-            {{/each}}
-        </ul>
+    <div class="row">
+        <div class="col-sm-8 float-right">
+            <div class="card">
 
-    </div>
+                <h2 class="card-header text-center">Available Tasks</h2>
+                <div class="card-body">
+                    <div class="card">
+                        {{#each tasks}}
+                            <h3 class="card-header">{{name}}</h3>
+                            {{>tasks/tasks-block}}
+                        {{/each}}
+                    </div>
+                </div>
 
+
+            </div>
+
+        </div>
 
     <div class="col-sm-4">
         <div class="card">
