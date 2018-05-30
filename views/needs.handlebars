@@ -1,11 +1,4 @@
 <div>
-    <h2>Wants</h2>
-    {{#each dbNeed}}
-        {{>wants/want-block}}
-
-        {{needs/need-block}}
-
-    {{/each}}
 
     <h2>Needs</h2>
     <ul>
@@ -15,3 +8,23 @@
     </ul>
 
 </div>
+
+<h1></h1>
+
+<button>Submit Want</button>
+
+
+<h2>Add a Need</h2>
+<form class="create-form">
+
+    <div class="form-group">
+        <label for="Need">Post:</label>
+        <input type="text" id="skill" name="name">
+    </div>
+
+    <h2></h2>
+    <button>Post Need</button>
+</form>
+
+<h3></h3>
+<a href="/"><button>Main Page</button></a> <a href="/wants"><button>Want</button></a>

@@ -6,11 +6,10 @@ const router = express.Router();
 
 //get route for main page
 router.get('/', (req, res) => {
-    res.send(`This shit's working`)
+    res.render(`index`);
+
 });
-//     .then().catch( err => {
-//     console.error(err);
-// })
+
 
 //get route for wants api
 router.get('/api/wants', (req, res) => {
