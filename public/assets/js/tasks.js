@@ -1,16 +1,8 @@
-$('document').ready( () => {
+$(document).ready( function() {
     console.log(`why isn't this working????`);
-    const data = {
-        name: $('#taskName').val(),
-        email: $('#taskEmail').val(),
-        tasks: $('#tasks').val(),
-        compensation: $('#taskCompensation').val(),
-        category: $('#taskCategory option:selected').text(),
-        location: $('#taskLocation').val()
-    };
-    function taskSubmit(event) {
 
-        event.preventDefault();
+    function taskSubmit(data) {
+
 
 
         console.log(data);
@@ -19,7 +11,20 @@ $('document').ready( () => {
         });
     }
     console.log('recognizing js');
-    $('#addTask').on('click', taskSubmit(event));
+    $('#taskForm').on('submit', function(event) {
+        let name = $('#taskName').val().trim();
+        let data = {
+            name: name,
+            email: $('#taskEmail').val().trim(),
+            tasks: $('#tasks').val().trim(),
+            compensation: $('#taskCompensation').val().trim(),
+            category: $('#taskCategory ').val().trim(),
+            location: $('#taskLocation').val().trim()
+        };
+
+        event.preventDefault();
+        taskSubmit(data)
+    });
 
 });
 

@@ -18,15 +18,13 @@
     <br>
 
     <div class="row">
-        <div class="col-sm-8 float-right">
+        <div class="col-sm-8 float-left">
             <div class="card">
 
                 <h2 class="card-header text-center">Available Tasks</h2>
                 <div class="card-body">
-                    <div class="card">
                         {{#each tasks}}
-                            <h3 class="card-header">{{name}}</h3>
-                            {{>tasks/tasks-block}}
+                            {{>tasks/task-block}}
                         {{/each}}
                     </div>
                 </div>
@@ -34,9 +32,8 @@
 
             </div>
 
-        </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-4 float-right">
             <div class="card">
                 <h2 class="card-header">Add a Task</h2>
                 <div class="card-body">
@@ -84,8 +81,10 @@
             </div>
 
         </div>
-
-
     </div>
+
+
 </div>
+</div>
+
 

@@ -1,18 +1,21 @@
-<h3 class="card-header">{{name}}</h3>
+<div class="card" data-id="{{id}}">
 
-<div class="card-body">
+    <h3 class="card-header">{{name}}</h3>
 
-    <table style="border: 1px solid black">
-        <tr>
-            <th style="border: 1px solid black; padding: 5px">skills</th>
-            <th style="border: 1px solid black; padding: 5px">category</th>
-        </tr>
-        <tr>
-            <td style="border: 1px solid black; padding: 5px">{{skills}}</td>
-            <td style="border: 1px solid black; padding: 5px">{{category}}</td>
-        </tr>
+    <div class="card-body">
 
-    </table>
+        <table style="border: 1px solid black">
+            <tr>
+                <th style="border: 1px solid black; padding: 5px">tasks</th>
+                <th style="border: 1px solid black; padding: 5px">category</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 5px">{{tasks}}</td>
+                <td style="border: 1px solid black; padding: 5px">{{category}}</td>
+            </tr>
+
+        </table>
 
 
+    </div>
 </div>

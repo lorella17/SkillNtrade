@@ -38,9 +38,10 @@ router.get('/api/tasks', (req, res) => {
 router.get('/tasks', (req, res) => {
     db.Tasks.findAll({}).then(dbTask => {
         const hdbsObject = {
-            skills: dbTask
+            tasks: dbTask
         };
         // console.log(dbNeed);
+        console.log()
         res.render('tasks', hdbsObject);
     }).catch(err => {
         if(err){
@@ -52,7 +53,7 @@ router.get('/tasks', (req, res) => {
 router.get('/skills', (req, res) => {
     db.Skills.findAll({}).then(dbSkill => {
         const hdbsObject = {
-            tasks: dbSkill
+            skills: dbSkill
         };
         res.render('skills', hdbsObject);
     }).catch(err => {
