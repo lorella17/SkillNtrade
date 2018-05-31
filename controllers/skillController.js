@@ -84,7 +84,7 @@ router.post('/api/tasks', (req, res) => {
     db.Needs.create({
         name: req.body.name,
         email: req.body.email,
-        skills: req.body.skills,
+        skills: req.body.tasks,
         location: req.body.location,
         category: req.body.category
     }).then( dbNeeds => {
