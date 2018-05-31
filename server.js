@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const path = require('path');
 
 const PORT = process.env.PORT || 8081;
 
@@ -8,7 +9,7 @@ const app = express();
 
 const db = require('./models');
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(bodyParser.urlencoded({ extended: true}));
 
@@ -21,7 +22,7 @@ const routes = require('./controllers/skillController');
 
 app.use(routes);
 
-db.sequelize.sync({force: false}).then( () => {
+db.sequelize.sync({force: true}).then( () => {
     app.listen(PORT, () => {
         console.log(`App listening on PORT ${PORT}`);
     });

@@ -1,20 +1,25 @@
-$(document).ready( () => {
+$('document').ready( () => {
     console.log(`why isn't this working????`);
-    const taskSubmit = event => {
-        event.preventDefault();
-        const data = {
-            email: $('#taskEmail').val().trim(),
-            name: $('#taskName').val().trim(),
-            category: $('#taskCategory option:selected').text().trim(),
-            location: $('#taskLocation').val().trim(),
-            compensation: $('#taskCompensation').val().trim(),
-            tasks: $('#tasks').val().trim()
-        };
-        console.log(data);
+    const data = {
+        name: $('#taskName').val(),
+        email: $('#taskEmail').val(),
+        tasks: $('#tasks').val(),
+        compensation: $('#taskCompensation').val(),
+        category: $('#taskCategory option:selected').text(),
+        location: $('#taskLocation').val()
     };
-    console.log('recognizing js');
-    $(document).on('submit', '#taskForm', taskSubmit());
+    function taskSubmit(event) {
 
+        event.preventDefault();
+
+
+        console.log(data);
+        $.post("/api/tasks", data).then( () => {
+            window.location.href = '/tasks'
+        });
+    }
+    console.log('recognizing js');
+    $('#addTask').on('click', taskSubmit(event));
 
 });
 
