@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 //get route for skills api
 router.get('/api/skills', (req, res) => {
-    db.Skills.findAll({})
+    db.Skill.findAll({order:['updatedAt', 'DESC']})
         .then(dbWant => {
 
             res.json(dbWant);
@@ -23,7 +23,9 @@ router.get('/api/skills', (req, res) => {
 });
 
 router.get('/api/tasks', (req, res) => {
-    db.Tasks.findAll({})
+    db.Task.findAll({
+        order:
+            [sequelize.fn('max', sequelize.col('updatedAt')), 'DESC']} )
         .then(dbNeed => {
             res.json(dbNeed);
         }).catch( err => {
@@ -36,12 +38,11 @@ router.get('/api/tasks', (req, res) => {
 
 //get route for tasks page
 router.get('/tasks', (req, res) => {
-    db.Tasks.findAll({}).then(dbTask => {
+    db.Task.findAll({}).then(dbTask => {
         const hdbsObject = {
             tasks: dbTask
         };
         // console.log(dbNeed);
-        console.log()
         res.render('tasks', hdbsObject);
     }).catch(err => {
         if(err){
@@ -51,7 +52,7 @@ router.get('/tasks', (req, res) => {
 });
 //get route for skills page
 router.get('/skills', (req, res) => {
-    db.Skills.findAll({}).then(dbSkill => {
+    db.Skill.findAll({}).then(dbSkill => {
         const hdbsObject = {
             skills: dbSkill
         };
@@ -66,12 +67,13 @@ router.get('/skills', (req, res) => {
 //post route for skills api
 router.post('/api/skills', (req, res) => {
     console.log(req.body);
-    db.Skills.create({
+    db.Skill.create({
         name: req.body.name,
         email: req.body.email,
         skills: req.body.skills,
+        title: req.body.title,
         compensation: req.body.compensation,
-        location: req.body.location,
+        deadline: req.body.deadline,
         category: req.body.category
     }).then( dbSkills => {
         res.json(dbSkills);
@@ -83,13 +85,14 @@ router.post('/api/skills', (req, res) => {
 //post route for tasks api
 router.post('/api/tasks', (req, res) => {
     console.log(req.body);
-    db.Tasks.create({
+    db.Task.create({
         name: req.body.name,
         email: req.body.email,
         tasks: req.body.tasks,
+        title: req.body.title,
         compensation: req.body.compensation,
-        category: req.body.category,
-        location: req.body.location
+        deadline: req.body.deadline,
+        category: req.body.category
     }).then( dbNeeds => {
         res.json(dbNeeds);
     }).catch(err => {

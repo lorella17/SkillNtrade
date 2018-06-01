@@ -1,6 +1,6 @@
 const moment = require('moment');
 module.exports = function(sequelize, DataTypes) {
-    const Skills = sequelize.define("Skills", {
+    const Skill = sequelize.define("Skill", {
         name: DataTypes.STRING,
         email: DataTypes.STRING,
         compensation: DataTypes.TEXT,
@@ -19,5 +19,5 @@ module.exports = function(sequelize, DataTypes) {
 
 
     });
-    return Skills;
+    return Skill;
 };
