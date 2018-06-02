@@ -22,6 +22,7 @@ router.get('/api/skills', (req, res) => {
     })
 });
 
+
 router.get('/api/tasks', (req, res) => {
     db.Tasks.findAll({})
         .then(dbNeed => {
@@ -41,7 +42,7 @@ router.get('/tasks', (req, res) => {
             tasks: dbTask
         };
         // console.log(dbNeed);
-        console.log()
+        console.log();
         res.render('tasks', hdbsObject);
     }).catch(err => {
         if(err){
@@ -70,8 +71,9 @@ router.post('/api/skills', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         skills: req.body.skills,
+        title: req.body.title,
         compensation: req.body.compensation,
-        location: req.body.location,
+        deadline: req.body.deadline,
         category: req.body.category
     }).then( dbSkills => {
         res.json(dbSkills);
@@ -87,9 +89,11 @@ router.post('/api/tasks', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         tasks: req.body.tasks,
+        title: req.body.title,
         compensation: req.body.compensation,
+        deadline: req.body.deadline,
         category: req.body.category,
-        location: req.body.location
+
     }).then( dbNeeds => {
         res.json(dbNeeds);
     }).catch(err => {

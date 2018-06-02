@@ -1,3 +1,12 @@
-main {
-    background: cornflowerblue;
+/*body {*/
+    /*background: dodgerblue;*/
+/*}*/
+
+h2.card-header{
+    color: red;
+}
+
+h2.card-header.text-center {
+    color: yellow;
+    font-weight: bold;
 }
