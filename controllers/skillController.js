@@ -24,7 +24,7 @@ router.get('/api/skills', (req, res) => {
 
 
 router.get('/api/tasks', (req, res) => {
-    db.Tasks.findAll({})
+    db.Task.findAll({})
         .then(dbNeed => {
             res.json(dbNeed);
         }).catch( err => {
@@ -37,7 +37,8 @@ router.get('/api/tasks', (req, res) => {
 
 //get route for tasks page
 router.get('/tasks', (req, res) => {
-    db.Tasks.findAll({}).then(dbTask => {
+    console.log('hit /tasks');
+    db.Task.findAll({}).then(dbTask => {
         const hdbsObject = {
             tasks: dbTask
         };
@@ -85,7 +86,7 @@ router.post('/api/skills', (req, res) => {
 //post route for tasks api
 router.post('/api/tasks', (req, res) => {
     console.log(req.body);
-    db.Tasks.create({
+    db.Task.create({
         name: req.body.name,
         email: req.body.email,
         tasks: req.body.tasks,
