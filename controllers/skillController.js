@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 //get route for skills api
 router.get('/api/skills', (req, res) => {
-    db.Skill.findAll({order:['updatedAt', 'DESC']})
+    db.Skills.findAll({})
         .then(dbWant => {
 
             res.json(dbWant);
@@ -23,7 +23,9 @@ router.get('/api/skills', (req, res) => {
 });
 
 router.get('/api/tasks', (req, res) => {
-    db.Task.findAll({}).then(dbNeed => {
+    db.Task.findAll({
+        })
+        .then(dbNeed => {
             res.json(dbNeed);
         }).catch( err => {
         if(err) {
@@ -35,6 +37,7 @@ router.get('/api/tasks', (req, res) => {
 
 //get route for tasks page
 router.get('/tasks', (req, res) => {
+    console.log('hit /tasks');
     db.Task.findAll({
         order: [
             ['id', 'DESC']
@@ -53,7 +56,7 @@ router.get('/tasks', (req, res) => {
 });
 //get route for skills page
 router.get('/skills', (req, res) => {
-    db.Skill.findAll({}).then(dbSkill => {
+    db.Skills.findAll({}).then(dbSkill => {
         const hdbsObject = {
             skills: dbSkill
         };
@@ -68,14 +71,16 @@ router.get('/skills', (req, res) => {
 //post route for skills api
 router.post('/api/skills', (req, res) => {
     console.log(req.body);
-    db.Skill.create({
+    db.Skills.create({
         name: req.body.name,
         email: req.body.email,
         skills: req.body.skills,
-        title: req.body.title,
+        // title: req.body.title,
         compensation: req.body.compensation,
-        deadline: req.body.deadline,
-        category: req.body.category
+        // deadline: req.body.deadline,
+        category: req.body.category,
+        description: req.body.description
+
     }).then( dbSkills => {
         res.json(dbSkills);
     }).catch( err => {
