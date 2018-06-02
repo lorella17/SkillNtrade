@@ -1,0 +1,110 @@
+<div class="container col-sm-10">
+
+    <div class="row">
+
+        <div class="col-sm-10">
+            <header>
+                <a href="/">
+                    <button>Main Page</button>
+                </a>
+                <a href="/skills">
+                    <button>Skills</button>
+                </a>
+            </header>
+        </div>
+
+        <div class="input-group mb-3">
+
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-sm-8 float-left">
+            <div class="card">
+
+                <h2 class="card-header text-center">Available Tasks</h2>
+                <input type="text" class="form-control" id="search" placeholder="Search">
+                <div class="btn-group" role="group">
+                    <button type="button" id="all" class="btn btn-success filterButton">All</button>
+                    <button type="button" id="GraphicDesign" class="btn btn-success filterButton">Graphic
+                        Design</button>
+                    <button type="button" id="UI" class="btn btn-success filterButton">UI</button>
+                    <button type="button" id="UX" class="btn btn-success filterButton">UX</button>
+                    <button type="button" id="FrontEnd" class="btn btn-success filterButton">Front End</button>
+                    <button type="button" id="BackEnd" class="btn btn-success filterButton">Back End</button>
+                </div>
+                <div class="card-body" id="parent">
+
+                    {{#each tasks}}
+                        {{>tasks/task-block}}
+                    {{/each}}
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="col-sm-4 float-right">
+            <div class="card">
+                <h2 class="card-header">Add a Task</h2>
+                <div class="card-body">
+                    <form id="taskForm">
+                        <div class="form-group">
+                            <label for="taskEmail">Email address</label>
+                            <input type="email" class="form-control" id="taskEmail" aria-describedby="emailHelp"
+                                   placeholder="email@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskName">Name</label>
+                            <input type="text" class="form-control" id="taskName" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskCategory">Category</label>
+
+                            <select class="form-control" id="taskCategory" required>
+                                <option selected disabled>Category</option>
+                                <option value="GraphicDesign">Graphic Design</option>
+                                <option value="UI">UI</option>
+                                <option value="UX">UX</option>
+                                <option value="FrontEnd">Front End</option>
+                                <option value="BackEnd">Back End</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDeadline">Deadline</label>
+                            <input type="text" class="form-control" id="taskDeadline" placeholder="Deadline" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskCompensation">Compensation</label>
+                            <input type="text" class="form-control" id="taskCompensation"
+                                   placeholder="How you are prepared to be compensated."
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formTitle">Title</label>
+                            <input type="text" class="form-control" placeholder="Title" id="taskTitle">
+                        </div>
+                        <div class="form-group">
+                            <label for="tasks">Tasks</label>
+                            <textarea class="form-control" id="tasks" rows="3" required></textarea>
+                        </div>
+                        <button id="addTask" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+
