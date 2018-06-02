@@ -23,10 +23,7 @@ router.get('/api/skills', (req, res) => {
 });
 
 router.get('/api/tasks', (req, res) => {
-    db.Task.findAll({
-        order:
-            [sequelize.fn('max', sequelize.col('updatedAt')), 'DESC']} )
-        .then(dbNeed => {
+    db.Task.findAll({}).then(dbNeed => {
             res.json(dbNeed);
         }).catch( err => {
         if(err) {
@@ -38,7 +35,11 @@ router.get('/api/tasks', (req, res) => {
 
 //get route for tasks page
 router.get('/tasks', (req, res) => {
-    db.Task.findAll({}).then(dbTask => {
+    db.Task.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(dbTask => {
         const hdbsObject = {
             tasks: dbTask
         };
