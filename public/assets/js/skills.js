@@ -45,6 +45,29 @@
              $('.skill').show().not(function () {
                  return matcher.test($(this).find('.name, .email, .skill, .category, .description').text())
              }).hide();
+         });
+
+         $(document).on('click', '.skill', function () {
+             console.log(`task has been clicked`);
+             const name = $('#modalName');
+             const title = $('#modalTitle');
+             const category = $('#modalCategory');
+             const skill = $('#modalSkill');
+             // const deadline = $('#modalDeadline');
+             const email = $('#modalEmail');
+             const compensation = $('#modalCompensation');
+
+             name.html(`${$(this).attr('data-name')}`);
+             title.html(`Title: ${$(this).attr('data-title')}`);
+             category.html(`Category: ${$(this).attr('data-category')}`);
+             skill.html(`Skill: ${$(this).attr('data-skill')}`);
+             compensation.html(`Compensation: ${$(this).attr('data-compensation')}`);
+             // deadline.html(`Deadline: ${$(this).attr('data-deadline')}`);
+             email.html(`Email: ${$(this).attr('data-email')}`);
+
+
+             $('#myModal').modal('show');
+
          })
 
      });
