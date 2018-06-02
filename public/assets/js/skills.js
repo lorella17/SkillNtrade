@@ -18,10 +18,10 @@
              let data = {
                  name: name,
                  email: $('#skillEmail').val().trim(),
-                 skills: $('#skills').val().trim(),
+                 skills: $('#skill').val().trim(),
                  // compensation: $('#skillCompensation').val().trim(),
                  category: $('#skillCategory').val().trim(),
-                 location: $('#skillLocation').val().trim(),
+                 // location: $('#skillLocation').val().trim(),
                  description: $('#skillDescription').val().trim()
              };
 
