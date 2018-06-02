@@ -1,55 +1,98 @@
-const db = require('../models');
+const db = require('./../models');
 
 const express = require('express');
 
 const router = express.Router();
 
-router.get('/needs', (req, res) => {
-    db.need.findAll({}).then(dbNeed => {
+//get route for main page
+router.get('/', (req, res) => {
+    res.render(`index`)
+});
+
+//get route for skills api
+router.get('/api/skills', (req, res) => {
+    db.Skill.findAll({order:['updatedAt', 'DESC']})
+        .then(dbWant => {
+
+            res.json(dbWant);
+        }).catch( err => {
+            if(err) {
+                console.error(err);
+            }
+    })
+});
+
+router.get('/api/tasks', (req, res) => {
+    db.Task.findAll({}).then(dbNeed => {
+            res.json(dbNeed);
+        }).catch( err => {
+        if(err) {
+            console.error(err);
+        }
+    })
+});
+
+
+//get route for tasks page
+router.get('/tasks', (req, res) => {
+    db.Task.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(dbTask => {
         const hdbsObject = {
-            needs: dbNeed
+            tasks: dbTask
         };
-        console.log(dbNeed);
-        res.render('needs', hdbsObject);
+        // console.log(dbNeed);
+        res.render('tasks', hdbsObject);
     }).catch(err => {
         if(err){
             console.error(err);
         }
     })
 });
-router.get('/wants', (req, res) => {
-    db.want.findAll({}).then(dbWant => {
+//get route for skills page
+router.get('/skills', (req, res) => {
+    db.Skill.findAll({}).then(dbSkill => {
         const hdbsObject = {
-            wants: dbWant
+            skills: dbSkill
         };
-        res.render('wants', hdbsObject);
+        res.render('skills', hdbsObject);
     }).catch(err => {
         if(err){
             console.error(err);
         }
     });
 });
-router.post('/api/wants', (req, res) => {
+
+//post route for skills api
+router.post('/api/skills', (req, res) => {
     console.log(req.body);
-    db.wants.create({
+    db.Skill.create({
         name: req.body.name,
         email: req.body.email,
         skills: req.body.skills,
-        location: req.body.location,
+        title: req.body.title,
+        compensation: req.body.compensation,
+        deadline: req.body.deadline,
         category: req.body.category
-    }).then( dbWants => {
-        res.json(dbWants);
+    }).then( dbSkills => {
+        res.json(dbSkills);
     }).catch( err => {
         console.error(err);
     });
 });
-router.post('/api/needs', (req, res) => {
+
+//post route for tasks api
+router.post('/api/tasks', (req, res) => {
     console.log(req.body);
-    db.needs.create({
+    db.Task.create({
         name: req.body.name,
         email: req.body.email,
-        skills: req.body.skills,
-        location: req.body.location,
+        tasks: req.body.tasks,
+        title: req.body.title,
+        compensation: req.body.compensation,
+        deadline: req.body.deadline,
         category: req.body.category
     }).then( dbNeeds => {
         res.json(dbNeeds);
