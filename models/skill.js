@@ -4,10 +4,9 @@ module.exports = function(sequelize, DataTypes) {
 
         name: DataTypes.STRING,
         email: DataTypes.STRING,
-        compensation: DataTypes.TEXT,
         skills: DataTypes.TEXT,
-        location: DataTypes.STRING,
         category: DataTypes.STRING,
+        description: DataTypes.STRING,
 
 
     });

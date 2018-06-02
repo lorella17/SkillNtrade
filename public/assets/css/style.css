@@ -2,18 +2,29 @@ body {
     background: dodgerblue;
 }
 
+a.btn.btn-default {
+    color: black;
+    font-weight: bolder;
+}
+
+h1 {
+    background-color: yellow;
+    color: gray;
+}
 h2.card-header{
     color: red;
     text-align: center;
 }
 
 h2.card-header.text-center {
-    color: yellow;
+    color: black;
+    background-color: yellow;
     font-weight: bolder;
 }
 
-h3.card-header{
+div.card-header{
     color: darkblue;
+    font-weight: bold;
 }
 
 button{

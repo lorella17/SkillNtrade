@@ -22,9 +22,9 @@ router.get('/api/skills', (req, res) => {
     })
 });
 
-
 router.get('/api/tasks', (req, res) => {
-    db.Task.findAll({})
+    db.Task.findAll({
+        })
         .then(dbNeed => {
             res.json(dbNeed);
         }).catch( err => {
@@ -38,12 +38,15 @@ router.get('/api/tasks', (req, res) => {
 //get route for tasks page
 router.get('/tasks', (req, res) => {
     console.log('hit /tasks');
-    db.Task.findAll({}).then(dbTask => {
+    db.Task.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(dbTask => {
         const hdbsObject = {
             tasks: dbTask
         };
         // console.log(dbNeed);
-        console.log();
         res.render('tasks', hdbsObject);
     }).catch(err => {
         if(err){
@@ -72,10 +75,12 @@ router.post('/api/skills', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         skills: req.body.skills,
-        title: req.body.title,
+        // title: req.body.title,
         compensation: req.body.compensation,
-        deadline: req.body.deadline,
-        category: req.body.category
+        // deadline: req.body.deadline,
+        category: req.body.category,
+        description: req.body.description
+
     }).then( dbSkills => {
         res.json(dbSkills);
     }).catch( err => {
@@ -93,8 +98,7 @@ router.post('/api/tasks', (req, res) => {
         title: req.body.title,
         compensation: req.body.compensation,
         deadline: req.body.deadline,
-        category: req.body.category,
-
+        category: req.body.category
     }).then( dbNeeds => {
         res.json(dbNeeds);
     }).catch(err => {
