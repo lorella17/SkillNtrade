@@ -4,9 +4,6 @@ const express = require('express');
 
 const router = express.Router();
 
-const api_key = ENV['MAILGUN_API_KEY'];
-const domain = ENV['MAILGUN_DOMAIN'];
-const mailgun = require('mailgun-js')({apikey: api_key, domain: domain});
 
 //get route for main page
 router.get('/', (req, res) => {
@@ -19,29 +16,20 @@ router.get('/api/skills', (req, res) => {
         .then(dbWant => {
 
             res.json(dbWant);
-            const data = {
-                from: 'skill trade',
-                to: `${dbWant.email}`,
-                subject: `update`,
-                text: `Your skill has been added to our site! Prepare to trade for what you need!`
-            };
-            mailgun.messages().send(data, function(error, body){
-                console.log(`body: ${body}`)
-            })
-        }).catch( err => {
-            if(err) {
-                console.error(err);
-            }
+
+        }).catch(err => {
+        if (err) {
+            console.error(err);
+        }
     })
 });
 
 router.get('/api/tasks', (req, res) => {
-    db.Task.findAll({
-        })
+    db.Task.findAll({})
         .then(dbNeed => {
             res.json(dbNeed);
-        }).catch( err => {
-        if(err) {
+        }).catch(err => {
+        if (err) {
             console.error(err);
         }
     })
@@ -62,7 +50,7 @@ router.get('/tasks', (req, res) => {
         // console.log(dbNeed);
         res.render('tasks', hdbsObject);
     }).catch(err => {
-        if(err){
+        if (err) {
             console.error(err);
         }
     })
@@ -75,11 +63,14 @@ router.get('/skills', (req, res) => {
         };
         res.render('skills', hdbsObject);
     }).catch(err => {
-        if(err){
+        if (err) {
             console.error(err);
         }
     });
 });
+// router.post('/skills', (req, res) => {
+//
+// })
 
 //post route for skills api
 router.post('/api/skills', (req, res) => {
@@ -94,33 +85,49 @@ router.post('/api/skills', (req, res) => {
         category: req.body.category,
         description: req.body.description
 
-    }).then( dbSkills => {
-        res.json(dbSkills);
+    }).then(dbWants => {
+        // console.log(`email: ${dbWants.email}`);
+        res.json(dbWants);
 
-        
-    }).catch( err => {
-        console.error(err);
+        // const api_key = ENV['MAILGUN_API_KEY'];
+        // const api_key = 'key-72920a2e38f995ab4fc411c1300b93a4-b6183ad4-3f150811';
+        // const domain = ENV['MAILGUN_DOMAIN'];
+        // const domain = 'sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org';
+        // const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+        // const data = {
+        //     from: 'Mail Gun skill-trade <postmaster@sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org>',
+        //     to: `${dbWants.email}`,
+        //     subject: `update`,
+        //     text: `Your skill has been added to our site! Prepare to trade for what you need!`
+        // };
+        // console.log(`data: ${JSON.stringify(data, null, 2)}`);
+        // mailgun.messages().send(data, function (error, body) {
+        //     console.log(`body: ${body}`)
+        })
+            .catch(err => {
+            console.error(err);
+        });
     });
-});
+// });
 
 //post route for tasks api
-router.post('/api/tasks', (req, res) => {
-    console.log(req.body);
-    db.Task.create({
-        name: req.body.name,
-        email: req.body.email,
-        tasks: req.body.tasks,
-        title: req.body.title,
-        compensation: req.body.compensation,
-        deadline: req.body.deadline,
-        category: req.body.category
-    }).then( dbNeeds => {
-        res.json(dbNeeds);
-    }).catch(err => {
-        console.error(err);
+    router.post('/api/tasks', (req, res) => {
+        console.log(req.body);
+        db.Task.create({
+            name: req.body.name,
+            email: req.body.email,
+            tasks: req.body.tasks,
+            title: req.body.title,
+            compensation: req.body.compensation,
+            deadline: req.body.deadline,
+            category: req.body.category
+        }).then(dbNeeds => {
+            res.json(dbNeeds);
+        }).catch(err => {
+            console.error(err);
+        });
     });
-});
 
-module.exports = router;
+    module.exports = router;
 
 
