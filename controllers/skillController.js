@@ -89,20 +89,7 @@ router.post('/api/skills', (req, res) => {
         // console.log(`email: ${dbWants.email}`);
         res.json(dbWants);
 
-        // const api_key = ENV['MAILGUN_API_KEY'];
-        // const api_key = 'key-72920a2e38f995ab4fc411c1300b93a4-b6183ad4-3f150811';
-        // const domain = ENV['MAILGUN_DOMAIN'];
-        // const domain = 'sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org';
-        // const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
-        // const data = {
-        //     from: 'Mail Gun skill-trade <postmaster@sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org>',
-        //     to: `${dbWants.email}`,
-        //     subject: `update`,
-        //     text: `Your skill has been added to our site! Prepare to trade for what you need!`
-        // };
-        // console.log(`data: ${JSON.stringify(data, null, 2)}`);
-        // mailgun.messages().send(data, function (error, body) {
-        //     console.log(`body: ${body}`)
+
         })
             .catch(err => {
             console.error(err);
