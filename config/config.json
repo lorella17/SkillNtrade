@@ -8,10 +8,10 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "moon_light_db",
-    "host": "127.0.0.1",
+    "username": "w8jhtx2ly3mgc19q",
+    "password": "ohmk00da8jzkplvc",
+    "database": "uq5eb2kchj2z8n02",
+    "host": "nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },

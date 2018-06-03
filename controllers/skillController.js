@@ -83,6 +83,7 @@ router.post('/api/skills', (req, res) => {
 
     }).then( dbSkills => {
         res.json(dbSkills);
+        
     }).catch( err => {
         console.error(err);
     });
