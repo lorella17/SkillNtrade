@@ -4,6 +4,10 @@ const express = require('express');
 
 const router = express.Router();
 
+const api_key = ENV['MAILGUN_API_KEY'];
+const domain = ENV['MAILGUN_DOMAIN'];
+const mailgun = require('mailgun-js')({apikey: api_key, domain: domain});
+
 //get route for main page
 router.get('/', (req, res) => {
     res.render(`index`)
@@ -15,6 +19,15 @@ router.get('/api/skills', (req, res) => {
         .then(dbWant => {
 
             res.json(dbWant);
+            const data = {
+                from: 'skill trade',
+                to: `${dbWant.email}`,
+                subject: `update`,
+                text: `Your skill has been added to our site! Prepare to trade for what you need!`
+            };
+            mailgun.messages().send(data, function(error, body){
+                console.log(`body: ${body}`)
+            })
         }).catch( err => {
             if(err) {
                 console.error(err);
@@ -83,6 +96,7 @@ router.post('/api/skills', (req, res) => {
 
     }).then( dbSkills => {
         res.json(dbSkills);
+
         
     }).catch( err => {
         console.error(err);
