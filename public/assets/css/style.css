@@ -1,3 +1,125 @@
-main {
-    background: cornflowerblue;
+
+body {
+    height: 100vh;
+    background: rgb(31,130,246);
+    /* background-color: red; */
+    background: linear-gradient(180deg, rgba(31,130,246,1) 0%, rgba(19,28,87,1) 100%);
+     background-repeat: none;
+    background-image: cover;
+    }
+
+#mainLogo {
+    width: 350px;
+    padding-top: 50px;
 }
+
+.mainBox {
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #EFECE8;
+    width: 800px;
+    height: 300px;
+}
+
+#catImg {
+    padding: 30px 50px 30px 50px;
+}
+
+.inline-block {
+   height: 50px;
+}
+#main-button {
+    font-family: 'Archivo Black', sans-serif;
+    color: #EFECE8;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    background-color: #131C57;
+    margin: 0px 20px 0px 20px;
+}
+#main-button:hover{
+    background-color: #FF514D;
+}
+#cornerLogo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#nav {
+    font-family: 'Archivo Black', sans-serif;
+    color: #EFECE8;
+    background-color: transparent;
+    margin-top: 30px;
+    float: right;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#nav:hover{
+    color: #FFFF43;
+}
+
+.form-header{
+    font-family: 'Archivo Black', sans-serif;
+    padding: 20px 0px 0px 20px;
+    color: #1F82F6;
+    font-size: 100%;
+    margin-bottom: 0px;
+}
+.card-header {
+    font-family: 'Archivo Black', sans-serif;
+    color: #FF514D;
+}
+
+#search {
+    font-family: 'Archivo Black', sans-serif;
+    color: silver;
+}
+
+.form-control {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: small;
+    color: gray;
+}
+
+.search-box {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* "Select all Categories" Button */
+#all {
+    margin-left: 10px;
+    background-color: #1F82F6;
+}
+
+/* "Categories" Tile bar */
+#categories-bar {
+    padding: 10px;
+}
+
+p {
+    font-family: 'Archivo Black', sans-serif;
+    color: #131C57;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Categories pic change to pink */
+.GraphicDesignButton {
+    position: relative;
+    display: inline-block;
+}
+
+#GraphicDesign-bottom{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+#GraphicDesign :hover #GraphicDesign-bottom{
+    display: inline;
+}
+/* ----------------------------------- */
