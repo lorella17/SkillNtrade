@@ -94,8 +94,8 @@ router.post('/api/skills', (req, res) => {
 
     }).then(dbWants => {
         console.log(`email: ${dbWants.email}`);
-        const api_key = '72920a2e38f995ab4fc411c1300b93a4-b6183ad4-3f150811';
-        const domain = 'sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org';
+        const api_key = process.env.MAILGUN_API_KEY;
+        const domain = process.env.MAILGUN_DOMAIN;
         const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
         const data = {
             from: 'Mail Gun <postmaster@sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org>',
@@ -129,8 +129,8 @@ router.post('/api/tasks', (req, res) => {
         return dbNeeds;
     }).then(dbNeeds => {
         console.log(`email: ${dbNeeds.email}`);
-        const api_key = '72920a2e38f995ab4fc411c1300b93a4-b6183ad4-3f150811';
-        const domain = 'sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org';
+        const api_key = process.env.MAILGUN_API_KEY;
+        const domain = process.env.MAILGUN_DOMAIN;
         const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
         const data = {
             from: 'Mail Gun <postmaster@sandbox1b5e6382d43947a7868b05e04f5bdc23.mailgun.org>',
