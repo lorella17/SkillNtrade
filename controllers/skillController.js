@@ -75,10 +75,10 @@ router.post('/api/skills', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         skills: req.body.skills,
-        // title: req.body.title,
+        title: req.body.title,
         compensation: req.body.compensation,
-        // deadline: req.body.deadline,
         category: req.body.category,
+        location: req.body.location,
         description: req.body.description
 
     }).then( dbSkills => {

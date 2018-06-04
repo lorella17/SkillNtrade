@@ -12,7 +12,7 @@
                     <h2 id="modalCategory"></h2>
                     <h2 id="modalTitle"></h2>
                     <h3 id="modalSkill"></h3>
-                    <!--<h3 id="modalDeadline"></h3>-->
+                    <h3 id="modalLocation"></h3>
                     <h3 id="modalEmail"></h3>
                     <h3 id="modalCompensation"></h3>
                 </div>
@@ -113,17 +113,29 @@
                             <option value="Back-end">Back End</option>
                         </select>
                     </div>
-                    <!--<div class="form-group">-->
-                    <!--<label for="skillLocation">Location</label>-->
-                    <!--<input type="text" class="form-control" id="skillLocation" placeholder="Location" required>-->
-                    <!--</div>-->
+                    <div class="form-group">
+                        <label for="skillTitle">Title</label>
+                        <textarea class="form-control" id="skillTitle" placeholder="Current job title" required></textarea>
+
+                    </div>
+
+                    <div class="form-group">
+                    <label for="skillCompensation">Compensation</label>
+                    <input type="text" class="form-control" id="skillCompensation" placeholder="how would you like to receive payment" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skillLocation">Location</label>
+                        <input type="text" class="form-control" id="skillLocation" placeholder="how would you like to receive payment" required>
+                    </div>
 
                     <div class="form-group">
                         <label for="skillsDescription">Description</label>
-                        <textarea class="form-control" id="skillDescription" rows="5" placeholder="Level of Expertise"
+                        <textarea class="form-control" id="skillDescription" rows="3" placeholder="Describe your Skill and level of exp."
                                   required></textarea>
 
                     </div>
+
                     <button id="addSkill" type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
