@@ -1,138 +1,85 @@
 <div class="container col-sm-10">
+    {{!-- <div class="row"> --}}
+        {{!-- <header> --}}
+            <a href="/">
+                <img id="cornerLogo" src="./assets/images/corner_logo.png" alt="skillTrade" style="width: 20%;"/>
+            </a>
+            <a href="/tasks">
+                <button id="nav">TASKS</button>
+            </a>
+        {{!-- </header> --}}
+    {{!-- </div> --}}
 
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <!-- Header -->
-                <div class="modal-header">
-                    <h1 id="modalName"></h1>
-                </div>
-                <!-- Body -->
-                <div class="modal-body">
-                    <h2 id="modalCategory"></h2>
-                    <h2 id="modalTitle"></h2>
-                    <h3 id="modalSkill"></h3>
-                    <!--<h3 id="modalDeadline"></h3>-->
-                    <h3 id="modalEmail"></h3>
-                    <h3 id="modalCompensation"></h3>
-                </div>
+    <br>
 
-                <!-- Footer -->
-                <div class="modal-footer modal-footer--mine">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
+        <div class="col-sm-8 float-right">
+            <div class="card">
 
-        <div class="col-sm-10">
-            <header>
-                <a href="/">
-                    <button>Home</button>
-
-                </a>
-                <a href="/tasks">
-                    <button>Tasks</button>
-                </a>
-            </header>
-        </div>
-
-        <div class="input-group mb-3"></div>
-
-    </div>
-
-
-
-
-<br>
-
-
-
-<div class="row">
-    <div class="col-sm-8 float-left">
-        <div class="card">
-
-            <h2 class="card-header text-center">OUR SKILLS</h2>
-            <input type="text" class="form-control" id="search" placeholder="Search">
-            <div class="btn-group" role="group">
-                <button type="button" id="all" class="btn btn-success filterButton">All</button>
-                <button type="button" id="GraphicDesign" class="btn btn-success filterButton">Graphic
-                    Design
-                </button>
-                <button type="button" id="UI" class="btn btn-success filterButton">UI</button>
-                <button type="button" id="UX" class="btn btn-success filterButton">UX</button>
-                <button type="button" id="Front-end" class="btn btn-success filterButton">Front End</button>
-                <button type="button" id="Back-end" class="btn btn-success filterButton">Back End</button>
-            </div>
-
-            <div class="card-body" id="parent">
-
-                {{#each skills}}
-                    {{>skills/skill-block}}
-                {{/each}}
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="col-sm-4 float-right">
-        <div class="card">
-            <h2 class="card-header">Join our Team</h2>
-            <div class="card-body">
-                <form id="skillForm">
-                    <div class="form-group">
-                        <label for="skillName">Name</label>
-                        <input type="text" class="form-control" id="skillName" placeholder="Name" required>
+                <h2 class="card-header text-center">Skills</h2>
+                <div class="card-body">
+                    <div class="card">
+                        {{#each skills}}
+                            {{>skills/skill-block}}
+                        {{/each}}
                     </div>
+                </div>
 
-                    <div class="form-group">
-
-                        <label for="skillEmail">Email address</label>
-                        <input type="email" class="form-control" id="skillEmail" aria-describedby="emailHelp"
-                               placeholder="email@email.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="skill">Skill</label>
-                        <input type="text" class="form-control" id="skill"
-                               placeholder="Your skills to Offer"
-                               required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="skillCategory">Category</label>
-
-                        <select class="form-control" id="skillCategory" required>
-                            <option selected disabled>Category</option>
-                            <option value="UI">UI</option>
-                            <option value="Graphic-Design">Graphic Design</option>
-                            <option value="UX">UX</option>
-                            <option value="Front-end">Front End</option>
-                            <option value="Back-end">Back End</option>
-                        </select>
-                    </div>
-                    <!--<div class="form-group">-->
-                    <!--<label for="skillLocation">Location</label>-->
-                    <!--<input type="text" class="form-control" id="skillLocation" placeholder="Location" required>-->
-                    <!--</div>-->
-
-                    <div class="form-group">
-                        <label for="skillsDescription">Description</label>
-                        <textarea class="form-control" id="skillDescription" rows="5" placeholder="Level of Expertise"
-                                  required></textarea>
-
-                    </div>
-                    <button id="addSkill" type="submit" class="btn btn-primary">Submit</button>
-                </form>
 
             </div>
 
         </div>
 
+
+        <div class="col-sm-4 float-left">
+            <div class="card">
+                <h2 class="form-header">ADD A SKILL</h2>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+
+
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                   placeholder="email@email.com" required>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" id="name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+
+
+                            <select class="form-control" id="category" required>
+                                <option selected disabled>Category</option>
+                                <option value="UI-UX">UI/UX</option>
+                                <option value="graphic-design">Graphic Design</option>
+                                <option value="photography-videography">Photography/Videography</option>
+                                <option value="front-end">Front End</option>
+                                <option value="back-end">Back End</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" id="location" placeholder="Location" required>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="How you are prepared to be compensated."
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label for="skill">Tasks</label>
+                            <textarea class="form-control" id="name" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
-</div>
 
 </div>
-
