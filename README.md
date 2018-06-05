@@ -5,3 +5,4 @@ Our application has two differnt forms
 -post your needs or what you are looking for 
 Users are connected via email notification once they've found a skill they are looking for or post they are interested in assisting. 
 We used sequelize, handlebars, express, body-parser, express-handlebars, moment and myql.
+once forms are submitted last 10 entries will display on page others will be on db and can be retrieved by user searching
