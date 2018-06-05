@@ -1,12 +1,14 @@
      $(document).ready(function () {
 
 
+
          function skillSubmit(data) {
              // console.log("naaathing");
              // console.log(data);
              $.post("/api/skills", data).then( (res) => {
                  console.log(res);
                  window.location.href = '/skills'
+
              });
 
          }
@@ -15,7 +17,6 @@
              event.preventDefault();
              console.log('why');
 
-             // let name = $('#skillName').val().trim();
              let data = {
                  name: $('#skillName').val().trim(),
                  email: $('#skillEmail').val().trim(),
@@ -56,7 +57,10 @@
              const title = $('#modalTitle');
              const category = $('#modalCategory');
              const skill = $('#modalSkill');
+
              const location = $('#modalLocation');
+
+
              const email = $('#modalEmail');
              const compensation = $('#modalCompensation');
 
@@ -65,7 +69,10 @@
              category.html(`Category: ${$(this).attr('data-category')}`);
              skill.html(`Skill: ${$(this).attr('data-skill')}`);
              compensation.html(`Compensation: ${$(this).attr('data-compensation')}`);
+
              location.html(`Location: ${$(this).attr('data-location')}`);
+
+
              email.html(`Email: ${$(this).attr('data-email')}`);
 
 
